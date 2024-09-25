@@ -1,0 +1,527 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "icon_with_text_wd8gJj": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "heading_1": "Customizable",
+            "icon_2": "return",
+            "heading_2": "Great Gift",
+            "icon_3": "truck",
+            "heading_3": "Free Shipping"
+          }
+        },
+        "collapsible_tab_EnUP9E": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Technical Tidbits:",
+            "icon": "check_mark",
+            "content": "<p><strong>Colors<\/strong>: Displays in Red, Black, and White.<\/p><p><strong>Refresh Rate<\/strong>: Updates in just 8 seconds (NFC transmission time excluded).<\/p><p><strong>Viewing Angle<\/strong>: Wide-angle visibility at &gt;170°.<\/p><p><strong>Compact Size<\/strong>: The whole piece measures just 47.84mm x 41.28mm, with the display area at a neat 27.00mm x 27.00mm.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_7gdEmX": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Why You'll Love It!",
+            "icon": "check_mark",
+            "content": "<ul><li>Thanks to e-Paper technology, your latest display sticks around even when the power doesn't. No backlight, no problem!<br\/><\/li><li>With no internal battery, it’s perfect for environments where power is precious. Just tap and go!<br\/><\/li><li>Change up your tag's display via our user-friendly app. Whether it's for labeling gear, decking out your desk, or personalizing a gift, your imagination is the limit.<br\/><\/li><li>Encased in a robust ABS plastic shell, it's tough enough for daily wear and tear while looking sleek and sharp.<br\/><\/li><li>Our dedicated app makes editing a breeze. Plus, it comes with all the instructions and info you’ll need to get started.<br\/><\/li><li>Ideal for mobile phone charms, business cards, unique decorations, and much more!<br\/><\/li><\/ul>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "rating",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "icon_with_text_wd8gJj",
+        "collapsible_tab_EnUP9E",
+        "collapsible_tab_7gdEmX"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_Lh6W48": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_PMxxUQ": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EBLpTT": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ixmRtb": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_PMxxUQ",
+        "column_EBLpTT",
+        "column_ixmRtb"
+      ],
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_PgdXT3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_jri9Wc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_4yzDtt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        },
+        "button_pAfjJT": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_jri9Wc",
+        "text_4yzDtt",
+        "button_pAfjJT"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_zhKLCR": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_EMQzfM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_QCyBf6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_6Dgy44": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_EMQzfM",
+        "text_QCyBf6",
+        "button_6Dgy44"
+      ],
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_LRFw6b": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_wTQdWc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_VjfEq7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_MdbUgG": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_wTQdWc",
+        "text_VjfEq7",
+        "button_MdbUgG"
+      ],
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_Vikrpz": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_9ikxCC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_fdbpGp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_VXnbYM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_zGKxDn": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_9ikxCC",
+        "collapsible_row_fdbpGp",
+        "collapsible_row_VXnbYM",
+        "collapsible_row_zGKxDn"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Collapsible content",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_QMBqwz": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7akMM4": {
+          "type": "heading",
+          "settings": {
+            "heading": "I'm so glad that...",
+            "heading_size": "h1"
+          }
+        },
+        "text_gaaAGm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7akMM4",
+        "text_gaaAGm"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_DQeTgj": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_dpnCP9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_my37kM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_piQFez": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_dpnCP9",
+        "text_my37kM",
+        "button_piQFez"
+      ],
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_9mTLLh": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zDWmpm": {
+          "type": "heading",
+          "settings": {
+            "heading": "See What People Have To Say About Us",
+            "heading_size": "h1"
+          }
+        },
+        "text_fjjVC6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        },
+        "button_YBE7YJ": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_zDWmpm",
+        "text_fjjVC6",
+        "button_YBE7YJ"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1725830618aa27380d": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_dynamic_section_m9GUaL": {
+          "type": "shopify:\/\/apps\/loox-reviews\/blocks\/loox-dynamic-section\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "aggregated": false,
+            "limit": 20,
+            "hide_thumbnails": false,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_dynamic_section_m9GUaL"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "multicolumn_Lh6W48",
+    "related-products",
+    "rich_text_PgdXT3",
+    "image_with_text_zhKLCR",
+    "image_with_text_LRFw6b",
+    "collapsible_content_Vikrpz",
+    "rich_text_QMBqwz",
+    "image_with_text_DQeTgj",
+    "rich_text_9mTLLh",
+    "1725830618aa27380d"
+  ]
+}

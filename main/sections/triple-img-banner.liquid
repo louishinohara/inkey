@@ -1,0 +1,256 @@
+<section class="triple-img-banner">
+  <div class="container">
+    <h2 class="section-title" style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.title_font_size }}px;">{{ section.settings.section_title }}</h2>
+    <div class="section-divider" style="background-color: {{ section.settings.text_color }};"> </div>
+    <div class="three-column-wrapper">
+      <!-- Column 1 -->
+      <div class="feature-column">
+        <div class="image-wrapper">
+          <img src="{{ section.settings.image1 | img_url: 'large' }}" alt="{{ section.settings.image1_alt_text }}">
+        </div>
+        <div class="text-wrapper">
+          <h3 style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.column_title_font_size }}px;">{{ section.settings.title1 }}</h3>
+          <p style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.body_font_size }}px;">{{ section.settings.description1 }}</p>
+        </div>
+      </div>
+      <!-- Column 2 -->
+      <div class="feature-column">
+        <div class="image-wrapper">
+          <img src="{{ section.settings.image2 | img_url: 'large' }}" alt="{{ section.settings.image2_alt_text }}">
+        </div>
+        <div class="text-wrapper">
+          <h3 style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.column_title_font_size }}px;">{{ section.settings.title2 }}</h3>
+          <p style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.body_font_size }}px;">{{ section.settings.description2 }}</p>
+        </div>
+      </div>
+      <!-- Column 3 -->
+      <div class="feature-column">
+        <div class="image-wrapper">
+          <img src="{{ section.settings.image3 | img_url: 'large' }}" alt="{{ section.settings.image3_alt_text }}">
+        </div>
+        <div class="text-wrapper">
+          <h3 style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.column_title_font_size }}px;">{{ section.settings.title3 }}</h3>
+          <p style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.body_font_size }}px;">{{ section.settings.description3 }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+ .triple-img-banner {
+    padding-top: 40px;
+    padding-bottom: 90px;
+    text-align: center;
+    /* Adjusted radial gradient to make it more spread out with adjustable colors */
+    background: radial-gradient(circle, {{ section.settings.gradient_center_color }} 0%, {{ section.settings.gradient_center_color }} 50%, {{ section.settings.gradient_edge_color }} 80%);
+}
+
+.section-divider {
+  width: calc(100% - 40px);
+  max-width: 1000px;
+  height: 1px;
+  margin: 0 auto 32px;
+  background-color: {{ section.settings.text_color }};
+}
+
+.three-column-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.feature-column {
+  flex: 1;
+  max-width: 320px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.image-wrapper {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-width: 320px; /* Default max width for medium screens */
+  transition: max-width 0.3s ease; /* Smooth resizing */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/* Adjust image size for larger screens */
+@media (min-width: 1024px) {
+  .image-wrapper img {
+    max-width: 400px; /* Increase the max width for larger screens */
+  }
+}
+
+@media (min-width: 1440px) {
+  .image-wrapper img {
+    max-width: 500px; /* Further increase the max width for even larger screens */
+  }
+}
+
+@media (max-width: 1024px) {
+  .three-column-wrapper {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .three-column-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .feature-column {
+    max-width: none;
+    width: 100%;
+  }
+
+  .section-divider {
+    width: 90%;
+  }
+
+  .image-wrapper img {
+    max-width: 100%; /* Allow the image to be full width on smaller screens */
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Triple Img Section",
+  "settings": [
+    {
+      "id": "section_title",
+      "type": "text",
+      "label": "Section Title",
+      "default": "Quick and Easy"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background Color",
+      "default": "#0e0e0e"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "id": "gradient_center_color",
+      "type": "color",
+      "label": "Gradient Center Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "id": "gradient_edge_color",
+      "type": "color",
+      "label": "Gradient Edge Color",
+      "default": "#0e0e0e"
+    },
+    {
+      "id": "title_font_size",
+      "type": "range",
+      "label": "Section Title Font Size (px)",
+      "default": 32,
+      "min": 12,
+      "max": 60,
+      "unit": "px"
+    },
+    {
+      "id": "column_title_font_size",
+      "type": "range",
+      "label": "Column Title Font Size (px)",
+      "default": 18,
+      "min": 10,
+      "max": 40,
+      "unit": "px"
+    },
+    {
+      "id": "body_font_size",
+      "type": "range",
+      "label": "Body Text Font Size (px)",
+      "default": 15,
+      "min": 10,
+      "max": 30,
+      "unit": "px"
+    },
+    {
+      "id": "image1",
+      "type": "image_picker",
+      "label": "Image 1"
+    },
+    {
+      "id": "image1_alt_text",
+      "type": "text",
+      "label": "Image 1 Alt Text"
+    },
+    {
+      "id": "title1",
+      "type": "text",
+      "label": "Title 1"
+    },
+    {
+      "id": "description1",
+      "type": "textarea",
+      "label": "Description 1"
+    },
+    {
+      "id": "image2",
+      "type": "image_picker",
+      "label": "Image 2"
+    },
+    {
+      "id": "image2_alt_text",
+      "type": "text",
+      "label": "Image 2 Alt Text"
+    },
+    {
+      "id": "title2",
+      "type": "text",
+      "label": "Title 2"
+    },
+    {
+      "id": "description2",
+      "type": "textarea",
+      "label": "Description 2"
+    },
+    {
+      "id": "image3",
+      "type": "image_picker",
+      "label": "Image 3"
+    },
+    {
+      "id": "image3_alt_text",
+      "type": "text",
+      "label": "Image 3 Alt Text"
+    },
+    {
+      "id": "title3",
+      "type": "text",
+      "label": "Title 3"
+    },
+    {
+      "id": "description3",
+      "type": "textarea",
+      "label": "Description 3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Three Column Feature Section",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

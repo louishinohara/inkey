@@ -1,0 +1,163 @@
+<section class="media-feature-block {{ section.settings.image_position }}">
+  <div class="image-text-wrapper">
+    <!-- Image container -->
+    <div class="image-container">
+      <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image_alt_text }}">
+    </div>
+    <!-- Text container -->
+    <div class="text-container" style="background-color: {{ section.settings.text_background_color }};">
+      <div class="content-wrapper">
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.description }}</p>
+        {% if section.settings.button_text %}
+          <a href="{{ section.settings.button_link }}" class="btn">{{ section.settings.button_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .media-feature-block {
+    padding: 0;
+    margin: 0;
+  }
+
+  .image-text-wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .image-container {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    max-height: 500px; /* Adjust the max height as needed */
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    max-height: 100%; /* Ensures the image doesn't exceed the container's height */
+  }
+
+  .text-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .content-wrapper {
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+  .content-wrapper h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .btn:hover {
+    background-color: #555;
+  }
+
+  /* Custom class for right-side image positioning */
+  .image-right .image-text-wrapper {
+    flex-direction: row-reverse;
+  }
+
+  @media (max-width: 768px) {
+    .image-text-wrapper {
+      flex-direction: column;
+    }
+
+    .content-wrapper {
+      padding: 20px;
+    }
+
+    .image-container img {
+      height: auto;
+      max-height: none; /* Ensures the image behaves normally on smaller screens */
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Media Feature Block",
+  "settings": [
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "image_alt_text",
+      "type": "text",
+      "label": "Image Alt Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Description"
+    },
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button Text"
+    },
+    {
+      "id": "button_link",
+      "type": "url",
+      "label": "Button Link"
+    },
+    {
+      "id": "image_position",
+      "type": "select",
+      "label": "Image Position",
+      "default": "image-left",
+      "options": [
+        {
+          "value": "image-left",
+          "label": "Left"
+        },
+        {
+          "value": "image-right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "id": "text_background_color",
+      "type": "color",
+      "label": "Text Background Color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media Feature Block",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,140 @@
+<section class="image-text-section">
+  <div class="container">
+    <div class="image-text-wrapper">
+      <!-- Image on the left -->
+      <div class="image-container">
+        <img src="{{ section.settings.image | img_url: 'large' }}" alt="{{ section.settings.image_alt_text }}">
+      </div>
+      <!-- Text on the right -->
+      <div class="text-container">
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.description }}</p>
+        {% if section.settings.button_text %}
+          <a href="{{ section.settings.button_link }}" class="btn">{{ section.settings.button_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .image-text-section {
+    padding: 0; /* Remove any padding around the section */
+  }
+
+  .container {
+    max-width: 1200px; /* Adjust max width as needed */
+    margin: 0 auto; /* Center container */
+    padding: 0; /* Remove padding */
+  }
+
+  .image-text-wrapper {
+    display: flex;
+    align-items: stretch; /* Make containers stretch to fill the height */
+    justify-content: space-between;
+    height: 50%; /* Ensure wrapper height is 100% */
+  }
+
+  .image-container {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire container */
+    display: block; /* Remove any inline spacing */
+  }
+
+  .text-container {
+    flex: 1;
+    padding: 40px; /* Adjust padding for the text area */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center text vertically */
+  }
+
+  .text-container h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px; /* Add space above button */
+  }
+
+  .btn:hover {
+    background-color: #555;
+  }
+
+  @media (max-width: 768px) {
+    .image-text-wrapper {
+      flex-direction: column;
+    }
+
+    .image-container, .text-container {
+      padding: 0;
+    }
+
+    .text-container {
+      padding: 20px; /* Add some padding for smaller screens */
+      margin-top: 20px;
+    }
+
+    .image-container img {
+      height: auto;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Image & Text Section",
+  "settings": [
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "image_alt_text",
+      "type": "text",
+      "label": "Image Alt Text"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Description"
+    },
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button Text"
+    },
+    {
+      "id": "button_link",
+      "type": "url",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
