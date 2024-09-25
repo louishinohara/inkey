@@ -19,72 +19,70 @@
 
   <!-- Footer Content Wrapper -->
   <div class="footer-content-wrapper">
-
     <!-- Footer Top Section -->
     <div class="footer-top">
       <div class="footer-content">
         <div class="footer-layout">
           <!-- Footer Links -->
           <div class="footer-links">
-            <!-- Column 1: My Account -->
-            <div class="footer-column">
-              <h3 class="footer-heading">My Account</h3>
-              <ul class="footer-link-list">
-                <li><a href="/membership-program">Membership Program</a></li>
-                <li><a href="/signin">Sign In</a></li>
-                <li><a href="/register">Register</a></li>
-                <li><a href="/order-status">Order Status</a></li>
-                <li><a href="/returns">Returns</a></li>
-              </ul>
-            </div>
-
-            <!-- Column 2: Help -->
-            <div class="footer-column">
-              <h3 class="footer-heading">Help</h3>
-              <ul class="footer-link-list">
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/shipping-policy">Shipping Policy</a></li>
-                <li><a href="/returns">Returns</a></li>
-                <li><a href="/contact-us">Contact Us</a></li>
-              </ul>
-            </div>
-
-            <!-- Column 3: About Us -->
+            <!-- Column 1: About Us -->
             <div class="footer-column">
               <h3 class="footer-heading">About Us</h3>
               <ul class="footer-link-list">
                 <li><a href="/our-business">Our Business</a></li>
-                <li><a href="/media">Media</a></li>
-                <li><a href="/investors">Investors</a></li>
-                <li><a href="/strategic-sales">Strategic Sales</a></li>
+                {%- if section.settings.show_policy -%}
+                  <ul class="footer-link-list">
+                    {%- for policy in shop.policies -%}
+                      {%- if policy != blank -%}
+                        <li>
+                          <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+                        </li>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </ul>
+              {%- endif -%}
               </ul>
             </div>
 
-            <!-- Column 4: Contact Us -->
+            <!-- Column 2: Help Center -->
             <div class="footer-column">
-              <h3 class="footer-heading">Contact Us</h3>
+              <h3 class="footer-heading">Help Center</h3>
               <ul class="footer-link-list">
-                <li><a href="/live-chat">Live Chat</a></li>
-                <li><a href="/email-sign-up">Email Sign Up</a></li>
                 <li><a href="/contact-us">Contact Us</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/order-status">Order Status</a></li>
+                <li><a href="/returns">Returns</a></li>
+                <li><a href="/shipping-policy">Shipping Policy</a></li>
               </ul>
+            </div>
+
+
+            <!-- Column 4: Subscribe -->
+            <div class="footer-column">
+              <h3 class="footer-heading">Subscribe</h3>
+
+              <!-- Newsletter Subscription Section -->
+              {%- if section.settings.newsletter_enable -%}
+                <div class="footer-block__newsletter">
+                  {%- if section.settings.newsletter_heading != blank -%}
+                    <h3 class="footer-block__heading">{{ section.settings.newsletter_heading }}</h3>
+                  {%- endif -%}
+                  {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+                    <div class="newsletter-form__field-wrapper">
+                      <input
+                        type="email"
+                        name="contact[email]"
+                        class="field__input"
+                        placeholder="Your email address"
+                        required
+                      >
+                      <button type="submit" class="newsletter-form__button">Subscribe</button>
+                    </div>
+                  {%- endform -%}
+                </div>
+              {%- endif -%}
             </div>
           </div>
-
-          <!-- Newsletter Subscription Section -->
-          {%- if section.settings.newsletter_enable -%}
-            <div class="footer-block__newsletter">
-              {%- if section.settings.newsletter_heading != blank -%}
-                <h3 class="footer-block__heading">{{ section.settings.newsletter_heading }}</h3>
-              {%- endif -%}
-              {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-                <div class="newsletter-form__field-wrapper">
-                  <input type="email" name="contact[email]" class="field__input" placeholder="Your email address" required>
-                  <button type="submit" class="newsletter-form__button">Subscribe</button>
-                </div>
-              {%- endform -%}
-            </div>
-          {%- endif -%}
         </div>
       </div>
     </div>
@@ -99,23 +97,14 @@
           <!-- Left Division: Date and Policies -->
           <div class="footer__left">
             <div class="footer__copyright">
-              <small>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</small>
+              <small
+                >&copy; {{ 'now' | date: '%Y' }}
+                {{ shop.name }}.co 
+              </small>
             </div>
-
-            {%- if section.settings.show_policy -%}
-              <div class="footer__policies">
-                <ul class="policies list-unstyled">
-                  {%- for policy in shop.policies -%}
-                    {%- if policy != blank -%}
-                      <li><a href="{{ policy.url }}">{{ policy.title | escape }}</a></li>
-                    {%- endif -%}
-                  {%- endfor -%}
-                </ul>
-              </div>
-            {%- endif -%}
           </div>
 
-          <!-- Right Division: Social Icons -->
+          <!-- Right Division: Social Icons (Optional) -->
           {%- if section.settings.show_social and has_social_icons -%}
             <div class="footer__right">
               {%- render 'social-icons', class: 'footer__list-social' -%}
@@ -124,268 +113,264 @@
         </div>
       </div>
     </div>
-
-  </div> <!-- End of Footer Content Wrapper -->
+  </div>
+  <!-- End of Footer Content Wrapper -->
 </footer>
 
 {%- style -%}
-  /* General Footer Styles */
-  .footer {
-    background-color: #111; /* Darker background for better contrast */
-    color: #fff;
-    font-family: Arial, sans-serif;
-  }
+/* General Footer Styles */
+.footer {
+  background-color: #111; /* Darker background for better contrast */
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
 
-  /* Footer Content Wrapper */
-  .footer-content-wrapper {
-    max-width: 1200px; /* Set a max-width to align content */
-    margin: 0 auto; /* Center the content */
-    padding: 0 20px; /* Add horizontal padding */
-  }
+/* Footer Content Wrapper */
+.footer-content-wrapper {
+  max-width: 1200px; /* Set a max-width to align content */
+  margin: 0 auto; /* Center the content */
+  padding: 0 20px; /* Add horizontal padding */
+}
 
-  /* Footer Top Section */
-  .footer-top {
-    padding: 40px 0;
-    border-bottom: 1px solid #333;
-  }
+/* Footer Top Section */
+.footer-top {
+  padding: 40px 0;
+  border-bottom: 1px solid #333;
+}
 
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-  }
+.footer-content {
+  display: flex;
+  flex-direction: column;
+}
 
+.footer-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  flex: 1 1 70%; /* Takes up 70% of the width */
+}
+
+.footer-column {
+  flex: 1 1 calc(25% - 30px);
+  min-width: 150px;
+}
+
+.footer-heading {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link-list li {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.footer-link-list li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link-list li a:hover {
+  color: #fff;
+}
+
+/* Dot Separators Between Policy Items */
+.footer__policies .policies {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer__policies .policies li {
+  display: flex;
+  align-items: center;
+}
+
+.footer__policies .policies li:not(:last-child)::after {
+  content: "•";
+  color: #ccc;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Newsletter Form Styles */
+.footer-block__newsletter {
+  flex: 0 0 25%; /* Takes up 25% of the width */
+  padding: 20px;
+  background-color: #222;
+  border-radius: 6px;
+  margin-top: 0; /* Remove top margin to align vertically */
+  text-align: right; /* Right-align the content within the newsletter section */
+}
+
+.footer-block__heading {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.newsletter-form__field-wrapper {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.field__input {
+  padding: 10px 12px;
+  border: 1px solid #555;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  flex: 1 1 auto;
+  min-width: 200px;
+  font-size: 14px;
+}
+
+.newsletter-form__button {
+  padding: 10px 20px;
+  background-color: #ff6600; /* Highlighted button color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form__button:hover {
+  background-color: #e65c00;
+}
+
+/* Separator Line */
+.footer-separator {
+  border-top: 1px solid #333;
+  margin: 40px auto 20px auto; /* Top margin to separate from footer-top */
+  width: 100%;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+  padding: 20px 0;
+}
+
+.footer-bottom__content {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__bottom-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Left Division: Date and Policies */
+.footer__left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer__copyright {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Social Icons Container */
+.footer__list-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px; /* Adds spacing above the icons */
+}
+
+/* Social Icons Styling */
+.footer__list-social a {
+  color: #ccc;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer__list-social a:hover {
+  color: #fff;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 992px) {
   .footer-layout {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 30px;
   }
 
-  .footer-column {
-    flex: 1 1 calc(25% - 30px);
-    min-width: 150px;
-  }
-
-  .footer-heading {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #fff;
-  }
-
-  .footer-link-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .footer-link-list li {
-    padding: 6px 0;
-    font-size: 14px;
-    color: #ccc;
-  }
-
-  .footer-link-list li a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .footer-link-list li a:hover {
-    color: #fff;
-  }
-
-  /* Newsletter Form Styles */
-  .footer-block__newsletter {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #222;
-    border-radius: 6px;
+  .footer-links {
     flex: 1 1 100%;
+    gap: 20px;
   }
 
-  .footer-block__heading {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #fff;
-  }
-
-  .newsletter-form__field-wrapper {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .field__input {
-    padding: 10px 12px;
-    border: 1px solid #555;
-    background-color: #333;
-    color: #fff;
-    border-radius: 4px;
-    flex: 1 1 auto;
-    min-width: 200px;
-    font-size: 14px;
-  }
-
-  .newsletter-form__button {
-    padding: 10px 20px;
-    background-color: #ff6600; /* Highlighted button color */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-  }
-
-  .newsletter-form__button:hover {
-    background-color: #e65c00;
-  }
-
-  /* Separator Line */
-  .footer-separator {
-    border-top: 1px solid #333;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  /* Footer Bottom Section */
-  .footer-bottom {
-    padding: 20px 0;
-  }
-
-  .footer-bottom__content {
-    display: flex;
-    justify-content: center;
+  .footer-block__newsletter {
+    flex: 1 1 100%;
+    margin-top: 20px;
+    text-align: left; /* Align text to left on smaller screens */
   }
 
   .footer__bottom-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer__left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .newsletter-form__field-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .newsletter-form__button {
     width: 100%;
   }
 
-  /* Left Division: Date and Policies */
-  .footer__left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  /* Policies List */
-  .footer__policies {
-    display: flex;
-    flex-wrap: wrap;
+  .footer__bottom-wrapper {
+    align-items: flex-start;
   }
 
   .policies {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .policies li {
-    list-style: none;
-  }
-
-  .policies li a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s;
-  }
-
-  .policies li a:hover {
-    color: #fff;
-  }
-
-  /* Social Icons */
-  .footer__list-social {
-    display: flex;
+    flex-direction: column;
     gap: 10px;
-    margin: 0;
-    padding: 0;
   }
 
-  .footer__list-social a {
-    color: #ccc;
-    font-size: 18px;
-    transition: color 0.3s;
+  .footer__left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
-
-  .footer__list-social a:hover {
-    color: #fff;
-  }
-
-  /* Responsive Styles */
-  @media screen and (max-width: 992px) {
-    .footer-layout {
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .footer-links {
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-column {
-      flex: 1 1 45%;
-    }
-
-    .footer-block__newsletter {
-      margin-top: 0;
-    }
-
-    .footer__bottom-wrapper {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .footer__left {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-  }
-
-  @media screen and (max-width: 576px) {
-    .newsletter-form__field-wrapper {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .newsletter-form__button {
-      width: 100%;
-    }
-
-    .footer__bottom-wrapper {
-      align-items: flex-start;
-    }
-
-    .policies {
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .footer__left {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-  }
+}
 {%- endstyle -%}
 
 {% schema %}
