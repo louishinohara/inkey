@@ -23,64 +23,89 @@
     <div class="footer-top">
       <div class="footer-content">
         <div class="footer-layout">
-          <!-- Footer Links -->
+          <!-- Left: Newsletter and Logo Section -->
+          <div class="footer-newsletter">
+            {%- if settings.logo != blank -%}
+              <div class="footer__logo-wrapper">
+                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+                {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
+                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+                {{
+                  settings.logo
+                  | image_url: width: 600
+                  | image_tag:
+                    class: 'footer__logo motion-reduce',
+                    widths: widths,
+                    height: logo_height,
+                    width: settings.logo_width,
+                    alt: logo_alt,
+                    sizes: sizes,
+                    preload: true
+                }}
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.newsletter_enable -%}
+              <div class="footer-block__newsletter">
+                {%- if section.settings.newsletter_heading != blank -%}
+                  <h4 class="footer-block__heading">{{ section.settings.newsletter_heading }}</h4>
+                {%- endif -%}
+                {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+                  <div class="newsletter-form__field-wrapper">
+                    <input
+                      type="email"
+                      name="contact[email]"
+                      class="field__input"
+                      placeholder="Your email address"
+                      required
+                    >
+                  </div>
+                  <button type="submit" class="newsletter-form__button">Subscribe</button>
+                {%- endform -%}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <!-- Right: Footer Links Section -->
           <div class="footer-links">
-            <!-- Column 1: About Us -->
+            <!-- Column 2: Policies -->
             <div class="footer-column">
               <h3 class="footer-heading">About Us</h3>
-              <ul class="footer-link-list">
-                <li><a href="/our-business">Our Business</a></li>
-                {%- if section.settings.show_policy -%}
-                  <ul class="footer-link-list">
-                    {%- for policy in shop.policies -%}
-                      {%- if policy != blank -%}
-                        <li>
-                          <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
-                        </li>
-                      {%- endif -%}
-                    {%- endfor -%}
-                  </ul>
+              {%- if section.settings.show_policy -%}
+                <ul class="footer-link-list">
+                  <li><a href="/our-business">Our Vision</a></li>
+                  <li><a href="/contact-us">Contact Us</a></li>
+                </ul>
               {%- endif -%}
-              </ul>
             </div>
 
-            <!-- Column 2: Help Center -->
+            <!-- Column 2: Policies -->
+            <div class="footer-column">
+              <h3 class="footer-heading">Policies</h3>
+              {%- if section.settings.show_policy -%}
+                <ul class="footer-link-list">
+                  {% assign sorted_policies = shop.policies | sort: 'title' %}
+                  {%- for policy in sorted_policies -%}
+                    {%- if policy != blank -%}
+                      <li>
+                        <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </div>
+
+            <!-- Column 3: Help Center -->
             <div class="footer-column">
               <h3 class="footer-heading">Help Center</h3>
               <ul class="footer-link-list">
-                <li><a href="/contact-us">Contact Us</a></li>
                 <li><a href="/faq">FAQ</a></li>
                 <li><a href="/order-status">Order Status</a></li>
-                <li><a href="/returns">Returns</a></li>
                 <li><a href="/shipping-policy">Shipping Policy</a></li>
+                <li><a href="/returns">Returns</a></li>
               </ul>
-            </div>
-
-
-            <!-- Column 4: Subscribe -->
-            <div class="footer-column">
-              <h3 class="footer-heading">Subscribe</h3>
-
-              <!-- Newsletter Subscription Section -->
-              {%- if section.settings.newsletter_enable -%}
-                <div class="footer-block__newsletter">
-                  {%- if section.settings.newsletter_heading != blank -%}
-                    <h3 class="footer-block__heading">{{ section.settings.newsletter_heading }}</h3>
-                  {%- endif -%}
-                  {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-                    <div class="newsletter-form__field-wrapper">
-                      <input
-                        type="email"
-                        name="contact[email]"
-                        class="field__input"
-                        placeholder="Your email address"
-                        required
-                      >
-                      <button type="submit" class="newsletter-form__button">Subscribe</button>
-                    </div>
-                  {%- endform -%}
-                </div>
-              {%- endif -%}
             </div>
           </div>
         </div>
@@ -99,8 +124,8 @@
             <div class="footer__copyright">
               <small
                 >&copy; {{ 'now' | date: '%Y' }}
-                {{ shop.name }}.co 
-              </small>
+                {{ shop.name }}.co All Rights Reserved</small
+              >
             </div>
           </div>
 
@@ -118,259 +143,301 @@
 </footer>
 
 {%- style -%}
-/* General Footer Styles */
-.footer {
-  background-color: #111; /* Darker background for better contrast */
-  color: #fff;
-  font-family: Arial, sans-serif;
-}
+  /* General Footer Styles */
+  /* General Footer Styles */
+  .footer {
+    background-color: #111; /* Dark background for contrast */
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding-top: 25px;
+  }
 
-/* Footer Content Wrapper */
-.footer-content-wrapper {
-  max-width: 1200px; /* Set a max-width to align content */
-  margin: 0 auto; /* Center the content */
-  padding: 0 20px; /* Add horizontal padding */
-}
+  /* Footer Content Wrapper */
+  .footer-content-wrapper {
+    max-width: 1200px; /* Align content width */
+    margin: 0 auto; /* Center horizontally */
+    padding: 0 20px; /* Horizontal padding */
+  }
 
-/* Footer Top Section */
-.footer-top {
-  padding: 40px 0;
-  border-bottom: 1px solid #333;
-}
+  /* Footer Top Section */
+  .footer-top {
+    padding: 40px 0;
+    padding-bottom: 80px; /* Adjusts bottom padding */
+    border-bottom: 1px solid #333;
+  }
 
-.footer-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-layout {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  flex: 1 1 70%; /* Takes up 70% of the width */
-}
-
-.footer-column {
-  flex: 1 1 calc(25% - 30px);
-  min-width: 150px;
-}
-
-.footer-heading {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #fff;
-}
-
-.footer-link-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-link-list li {
-  padding: 6px 0;
-  font-size: 14px;
-  color: #ccc;
-}
-
-.footer-link-list li a {
-  color: #ccc;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-link-list li a:hover {
-  color: #fff;
-}
-
-/* Dot Separators Between Policy Items */
-.footer__policies .policies {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.footer__policies .policies li {
-  display: flex;
-  align-items: center;
-}
-
-.footer__policies .policies li:not(:last-child)::after {
-  content: "•";
-  color: #ccc;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-/* Newsletter Form Styles */
-.footer-block__newsletter {
-  flex: 0 0 25%; /* Takes up 25% of the width */
-  padding: 20px;
-  background-color: #222;
-  border-radius: 6px;
-  margin-top: 0; /* Remove top margin to align vertically */
-  text-align: right; /* Right-align the content within the newsletter section */
-}
-
-.footer-block__heading {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #fff;
-}
-
-.newsletter-form__field-wrapper {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.field__input {
-  padding: 10px 12px;
-  border: 1px solid #555;
-  background-color: #333;
-  color: #fff;
-  border-radius: 4px;
-  flex: 1 1 auto;
-  min-width: 200px;
-  font-size: 14px;
-}
-
-.newsletter-form__button {
-  padding: 10px 20px;
-  background-color: #ff6600; /* Highlighted button color */
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s;
-}
-
-.newsletter-form__button:hover {
-  background-color: #e65c00;
-}
-
-/* Separator Line */
-.footer-separator {
-  border-top: 1px solid #333;
-  margin: 40px auto 20px auto; /* Top margin to separate from footer-top */
-  width: 100%;
-}
-
-/* Footer Bottom Section */
-.footer-bottom {
-  padding: 20px 0;
-}
-
-.footer-bottom__content {
-  display: flex;
-  justify-content: center;
-}
-
-.footer__bottom-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-/* Left Division: Date and Policies */
-.footer__left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.footer__copyright {
-  font-size: 14px;
-  color: #ccc;
-}
-
-/* Social Icons Container */
-.footer__list-social {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px; /* Adds spacing above the icons */
-}
-
-/* Social Icons Styling */
-.footer__list-social a {
-  color: #ccc;
-  font-size: 18px;
-  transition: color 0.3s;
-}
-
-.footer__list-social a:hover {
-  color: #fff;
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 992px) {
-  .footer-layout {
+  .footer-content {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
+  }
+
+  .footer-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Ensure all items are aligned to the top */
+    flex-wrap: nowrap; /* Prevent wrapping to the next row */
+    gap: 30px; /* Adjusts spacing between the logo and the other content */
+  }
+
+  /* Adjust the newsletter and other content columns */
+  .footer-newsletter {
+    flex: 0 1 auto; /* Allow this column to be flexible but not take up unnecessary space */
+    display: flex;
+    flex-direction: column;
+    max-width: 350px; /* Ensures it doesn’t grow too wide */
   }
 
   .footer-links {
-    flex: 1 1 100%;
-    gap: 20px;
+    flex: 1 1 0; /* Takes remaining space while keeping content aligned right */
+    display: flex;
+    justify-content: flex-end; /* Aligns content to the right */
+    gap: 40px; /* Adjusts spacing between different link columns */
   }
 
+  .footer-column {
+    min-width: 150px; /* Ensures each column has a minimum width */
+  }
+
+  .footer-heading {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  .footer-link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-link-list li {
+    margin-bottom: 8px; /* Adds spacing between items */
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  .footer-link-list li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+    text-transform: capitalize; /* Capitalize each word */
+  }
+
+  .footer-link-list li a:hover {
+    color: #fff;
+  }
+
+  /* Newsletter Form Styles */
+  /* Newsletter Form Styles */
   .footer-block__newsletter {
-    flex: 1 1 100%;
-    margin-top: 20px;
-    text-align: left; /* Align text to left on smaller screens */
+    border-radius: 6px;
+    margin-top: 0;
+    text-align: left;
   }
 
-  .footer__bottom-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
+  .footer-block__heading {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    color: #fff;
   }
 
-  .footer__left {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-}
-
-@media screen and (max-width: 576px) {
   .newsletter-form__field-wrapper {
-    flex-direction: column;
-    align-items: stretch;
+    display: flex;
+    flex-direction: column; /* Stack input and button vertically */
+    align-items: flex-start;
+    gap: 10px; /* Adds space between input and button */
+  }
+
+  .field__input {
+    width: 250px; /* Ensures the input spans the full width */
+    padding: 10px 12px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Ensure placeholder color is visible */
+    caret-color: #fff; /* Adjust caret color */
+  }
+
+  .field__input::placeholder {
+    color: #ccc; /* Makes the placeholder visible */
+  }
+
+  .field__input:focus {
+    outline: none;
+    border-color: #fff; /* Maintains a consistent border */
+    border-radius: 4px; /* Keeps the border radius consistent */
   }
 
   .newsletter-form__button {
+    padding: 10px 20px;
+    background-color: #fff; 
+    color: #000; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Adjust the font size */
+    font-weight: 500; /* Set font weight (bold) */
+    letter-spacing: 3px; /* Adjust letter spacing */
+    font-family: Arial, sans-serif; /* Change the font family */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color changes */
+    height: 40px; /* Set to desired height */
+    width: 250px; /* Ensures the input spans the full width */
+    margin-top: 8px; /* Spacing above button */
+  }
+
+  .newsletter-form__button:hover {
+    background-color: #fff; /* Changes background on hover */
+    color: #fff; /* Changes text color on hover */
+  }
+
+  /* Separator Line */
+  .footer-separator {
+    border-top: 1px solid #333;
+    margin: 40px auto 20px auto; /* Top and bottom margins */
     width: 100%;
   }
 
+  /* Footer Bottom Section */
+  .footer-bottom {
+    padding: 20px 0;
+  }
+
+  .footer-bottom__content {
+    display: flex;
+    justify-content: center;
+  }
+
   .footer__bottom-wrapper {
-    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
-  .policies {
-    flex-direction: column;
-    gap: 10px;
-  }
-
+  /* Left Division: Date and Policies */
   .footer__left {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
   }
-}
+
+  .footer__copyright {
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  /* Social Icons Container */
+  .footer__list-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px; /* Spacing above icons */
+  }
+
+  /* Social Icons Styling */
+  .footer__list-social a {
+    color: #ccc;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+
+  .footer__list-social a:hover {
+    color: #fff;
+  }
+
+  .footer__logo-wrapper img.footer__logo {
+    max-width: 180px; /* Set to desired size */
+    width: 100%; /* Responsive */
+    height: auto; /* Maintain aspect ratio */
+    transition: opacity 0.3s; /* Smooth transition on hover */
+  }
+
+  .footer__logo-wrapper img.footer__logo:hover {
+    opacity: 0.8; /* Dim on hover */
+  }
+
+  /* Responsive Logo Adjustments */
+  @media screen and (max-width: 768px) {
+    .footer__logo-wrapper img.footer__logo {
+      max-width: 120px; /* Tablet size */
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .footer__logo-wrapper img.footer__logo {
+      max-width: 100px; /* Mobile size */
+    }
+  }
+
+  /* Accessibility Focus State */
+  .footer-logo:focus img.footer__logo {
+    outline: 2px solid #ff6600; /* Visible outline on focus */
+    outline-offset: 2px;
+  }
+
+  /* Responsive Styles */
+
+  /* Tablet View */
+  @media screen and (max-width: 992px) {
+    .footer-layout {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .footer-links {
+      flex: 1 1 100%;
+      gap: 20px;
+    }
+
+    .footer-block__newsletter {
+      flex: 1 1 100%;
+      margin-top: 20px;
+      text-align: left; /* Align left on smaller screens */
+    }
+
+    .footer__bottom-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer__left {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+
+  /* Mobile View */
+  @media screen and (max-width: 576px) {
+    .newsletter-form__field-wrapper {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .newsletter-form__button {
+      width: 100%; /* Button takes full width on mobile */
+    }
+
+    .footer__bottom-wrapper {
+      align-items: flex-start;
+    }
+
+    .footer__left {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
 {%- endstyle -%}
 
 {% schema %}
