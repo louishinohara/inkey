@@ -140,319 +140,345 @@
 </footer>
 
 {%- style -%}
-  /* General Footer Styles */
-  .footer {
-    background-color: #111; /* Dark background for contrast */
-    color: #fff;
-    font-family: Arial, sans-serif;
-    padding-top: 10px;
-  }
+/* General Footer Styles */
+.footer {
+  background-color: #111; /* Dark background for contrast */
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding-top: 10px;
+}
 
-  /* Footer Content Wrapper */
-  .footer-content-wrapper {
-    max-width: 1200px; /* Align content width */
-    margin: 0 auto; /* Center horizontally */
-    padding: 0 20px; /* Horizontal padding */
-  }
+/* Footer Content Wrapper */
+.footer-content-wrapper {
+  max-width: 1200px; /* Align content width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 0 20px; /* Horizontal padding */
+}
 
-  /* Footer Top Section */
-  .footer-top {
-    padding: 40px 0;
-    padding-bottom: 40px; /* Adjusts bottom padding */
-    border-bottom: 1px solid #333;
-  }
+/* Footer Top Section */
+.footer-top {
+  padding: 40px 0;
+  padding-bottom: 40px; /* Adjusts bottom padding */
+  border-bottom: 1px solid #333;
+}
 
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-  }
+.footer-content {
+  display: flex;
+  flex-direction: column;
+}
 
+.footer-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Ensure all items are aligned to the top */
+  flex-wrap: nowrap; /* Prevent wrapping to the next row */
+  gap: 30px; /* Adjusts spacing between the logo and the other content */
+  width: 100%; /* Ensure full width */
+}
+
+/* Adjust the newsletter and other content columns */
+.footer-newsletter {
+  flex: 0 1 auto; /* Allow this column to be flexible but not take up unnecessary space */
+  display: flex;
+  flex-direction: column;
+  max-width: 350px; /* Ensures it doesn’t grow too wide */
+  width: 100%; /* Ensure it spans full width */
+}
+
+.footer-links {
+  flex: 1 1 0; /* Takes remaining space while keeping content aligned right */
+  display: flex;
+  justify-content: flex-end; /* Aligns content to the right */
+  gap: 40px; /* Adjusts spacing between different link columns */
+  padding-top: 20px;
+}
+
+.footer-column {
+  min-width: 150px; /* Ensures each column has a minimum width */
+}
+
+.footer-heading {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link-list li {
+  margin-bottom: 8px; /* Adds spacing between items */
+  font-size: 14px;
+  color: #ccc;
+}
+
+.footer-link-list li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+  text-transform: capitalize; /* Capitalize each word */
+}
+
+.footer-link-list li a:hover {
+  color: #fff;
+}
+
+/* Newsletter Form Styles */
+.footer-block__newsletter {
+  border-radius: 6px;
+  margin-top: 0;
+  text-align: left;
+  width: 100%; /* Ensure it spans the full width */
+}
+
+.footer-block__heading {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.newsletter-form__field-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack input and button vertically */
+  align-items: flex-start;
+  gap: 10px; /* Adds space between input and button */
+  width: 100%; /* Ensure full width */
+}
+
+.field__input {
+  width: 100%; /* Ensure the input spans the full width */
+  padding: 10px 12px;
+  border: 1px solid #555;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box; /* Include padding in total width */
+  transition: border-color 0.3s, box-shadow 0.3s;
+  caret-color: #fff; /* Adjust caret color */
+}
+
+.field__input::placeholder {
+  color: #ccc; /* Make sure this color contrasts with the background */
+  opacity: 1; /* Ensure the placeholder is fully opaque */
+  font-size: 14px; /* Adjust the font size if needed */
+  font-style: italic; /* Optional: make the placeholder text italic */
+}
+
+.field__input:focus {
+  outline: none;
+  border-color: #fff; /* Maintains a consistent border */
+  border-radius: 4px; /* Keeps the border radius consistent */
+  padding: 10px 12px; /* Maintain the same padding as in the non-focused state */
+}
+
+.newsletter-form__button {
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px; /* Adjust the font size */
+  font-weight: 500; /* Set font weight (bold) */
+  letter-spacing: 3px; /* Adjust letter spacing */
+  font-family: Arial, sans-serif; /* Change the font family */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color changes */
+  height: 40px; /* Set to desired height */
+  width: 100%; /* Ensure full width */
+  margin-top: 8px; /* Spacing above button */
+  box-sizing: border-box; /* Include padding in total width */
+}
+
+.newsletter-form__button:hover {
+  background-color: #555; /* Changes background on hover */
+  color: #fff; /* Changes text color on hover */
+}
+
+/* Separator Line */
+.footer-separator {
+  border-top: 1px solid #333;
+  margin: 40px auto 20px auto; /* Top and bottom margins */
+  width: 100%;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+  padding: 20px 0;
+}
+
+.footer-bottom__content {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__bottom-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  width: 100%;
+}
+
+/* Left Division: Date and Policies */
+.footer__left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.footer__copyright {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Social Icons Container */
+.footer__list-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px; /* Spacing above icons */
+}
+
+/* Social Icons Styling */
+.footer__list-social a {
+  color: #ccc;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer__list-social a:hover {
+  color: #fff;
+}
+
+.footer__list-social > a:first-child {
+  padding-left: 0; /* Remove left padding */
+  margin-left: 0;  /* Ensure no extra margin if any */
+}
+
+/* Logo Styling */
+.footer__logo-wrapper img.footer__logo {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s;
+}
+
+.footer__logo-wrapper img.footer__logo:hover {
+  opacity: 0.8;
+}
+
+/* Responsive Logo Adjustments */
+@media screen and (max-width: 768px) {
+  .footer__logo-wrapper img.footer__logo {
+    max-width: 150px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer__logo-wrapper img.footer__logo {
+    max-width: 120px;
+  }
+}
+
+/* Accessibility Focus State */
+.footer-logo:focus img.footer__logo {
+  outline: 2px solid #ff6600;
+  outline-offset: 2px;
+}
+
+/* Responsive Styles */
+
+/* Tablet View */
+@media screen and (max-width: 992px) {
   .footer-layout {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Ensure all items are aligned to the top */
-    flex-wrap: nowrap; /* Prevent wrapping to the next row */
-    gap: 30px; /* Adjusts spacing between the logo and the other content */
-    width: 100%; /* Ensure full width */
-  }
-
-  /* Adjust the newsletter and other content columns */
-  .footer-newsletter {
-    flex: 0 1 auto; /* Allow this column to be flexible but not take up unnecessary space */
-    display: flex;
-    flex-direction: column;
-    max-width: 350px; /* Ensures it doesn’t grow too wide */
-    width: 100%; /* Ensure it spans full width */
+    flex-wrap: wrap; /* Allow wrapping if necessary */
   }
 
   .footer-links {
-    flex: 1 1 0; /* Takes remaining space while keeping content aligned right */
-    display: flex;
-    justify-content: flex-end; /* Aligns content to the right */
-    gap: 40px; /* Adjusts spacing between different link columns */
+    gap: 20px;
   }
 
-  .footer-column {
-    min-width: 150px; /* Ensures each column has a minimum width */
-  }
-
-  .footer-heading {
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    color: #fff;
-  }
-
-  .footer-link-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .footer-link-list li {
-    margin-bottom: 8px; /* Adds spacing between items */
-    font-size: 14px;
-    color: #ccc;
-  }
-
-  .footer-link-list li a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
-    text-transform: capitalize; /* Capitalize each word */
-  }
-
-  .footer-link-list li a:hover {
-    color: #fff;
-  }
-
-  /* Newsletter Form Styles */
   .footer-block__newsletter {
-    border-radius: 6px;
     margin-top: 0;
-    text-align: left;
-    width: 100%; /* Ensure it spans the full width */
-  }
-
-  .footer-block__heading {
-    text-align: left;
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 16px;
-    margin-bottom: 8px;
-    color: #fff;
-  }
-
-  .newsletter-form__field-wrapper {
-    display: flex;
-    flex-direction: column; /* Stack input and button vertically */
-    align-items: flex-start;
-    gap: 10px; /* Adds space between input and button */
-    width: 100%; /* Ensure full width */
-  }
-
-  .field__input {
-    width: 100%; /* Ensure the input spans the full width */
-    padding: 10px 12px;
-    border: 1px solid #555;
-    background-color: #333;
-    color: #fff;
-    border-radius: 4px;
-    font-size: 14px;
-    box-sizing: border-box; /* Include padding in total width */
-    transition: border-color 0.3s, box-shadow 0.3s;
-    caret-color: #fff; /* Adjust caret color */
-  }
-
-  .field__input::placeholder {
-    color: #ccc; /* Make sure this color contrasts with the background */
-    opacity: 1; /* Ensure the placeholder is fully opaque */
-    font-size: 14px; /* Adjust the font size if needed */
-    font-style: italic; /* Optional: make the placeholder text italic */
-  }
-
-  .field__input:focus {
-    outline: none;
-    border-color: #fff; /* Maintains a consistent border */
-    border-radius: 4px; /* Keeps the border radius consistent */
-    padding: 10px 12px; /* Maintain the same padding as in the non-focused state */
-  }
-
-  .newsletter-form__button {
-    padding: 10px 20px;
-    background-color: #fff;
-    color: #000;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px; /* Adjust the font size */
-    font-weight: 500; /* Set font weight (bold) */
-    letter-spacing: 3px; /* Adjust letter spacing */
-    font-family: Arial, sans-serif; /* Change the font family */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color changes */
-    height: 40px; /* Set to desired height */
-    width: 100%; /* Ensure full width */
-    margin-top: 8px; /* Spacing above button */
-    box-sizing: border-box; /* Include padding in total width */
-  }
-
-  .newsletter-form__button:hover {
-    background-color: #555; /* Changes background on hover */
-    color: #fff; /* Changes text color on hover */
-  }
-
-  /* Separator Line */
-  .footer-separator {
-    border-top: 1px solid #333;
-    margin: 40px auto 20px auto; /* Top and bottom margins */
-    width: 100%;
-  }
-
-  /* Footer Bottom Section */
-  .footer-bottom {
-    padding: 20px 0;
-  }
-
-  .footer-bottom__content {
-    display: flex;
-    justify-content: center;
   }
 
   .footer__bottom-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    width: 100%;
+    flex-wrap: wrap; /* Allow wrapping */
   }
 
-  /* Left Division: Date and Policies */
   .footer__left {
-    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+  }
+}
+
+/* Mobile View */
+@media screen and (max-width: 576px) {
+  .footer-layout {
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
-    flex-wrap: nowrap; /* Prevent wrapping */
-  }
-
-  .footer__copyright {
-    font-size: 14px;
-    color: #ccc;
-  }
-
-  /* Social Icons Container */
-  .footer__list-social {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px; /* Spacing above icons */
-  }
-
-  /* Social Icons Styling */
-  .footer__list-social a {
-    color: #ccc;
-    font-size: 18px;
-    transition: color 0.3s;
-  }
-
-  .footer__list-social a:hover {
-    color: #fff;
-  }
-
-  .footer__list-social > a:first-child {
-    padding-left: 0; /* Remove left padding */
-    margin-left: 0;  /* Ensure no extra margin if any */
-  }
-
-  /* Logo Styling */
-  .footer__logo-wrapper img.footer__logo {
-    max-width: 180px;
     width: 100%;
-    height: auto;
-    transition: opacity 0.3s;
+    text-align: center;
   }
 
-  .footer__logo-wrapper img.footer__logo:hover {
-    opacity: 0.8;
+  .footer-links {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
   }
 
-  /* Responsive Logo Adjustments */
-  @media screen and (max-width: 768px) {
-    .footer__logo-wrapper img.footer__logo {
-      max-width: 150px;
-    }
+  .footer-column {
+    min-width: 100px;
   }
 
-  @media screen and (max-width: 480px) {
-    .footer__logo-wrapper img.footer__logo {
-      max-width: 120px;
-    }
+  .footer__bottom-wrapper {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  /* Accessibility Focus State */
-  .footer-logo:focus img.footer__logo {
-    outline: 2px solid #ff6600;
-    outline-offset: 2px;
+  .footer__left {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
   }
 
-  /* Responsive Styles */
-
-  /* Tablet View */
-  @media screen and (max-width: 992px) {
-    .footer-layout {
-      flex-wrap: wrap; /* Allow wrapping if necessary */
-    }
-
-    .footer-links {
-      gap: 20px;
-    }
-
-    .footer-block__newsletter {
-      margin-top: 0;
-    }
-
-    .footer__bottom-wrapper {
-      flex-wrap: wrap; /* Allow wrapping */
-    }
-
-    .footer__left {
-      flex-wrap: wrap; /* Allow wrapping */
-    }
+  .footer__right {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
   }
 
-  /* Mobile View */
-  @media screen and (max-width: 576px) {
-    .footer-layout {
-      flex-wrap: wrap;
-    }
-
-    .footer-links {
-      flex-direction: column; /* Stack links vertically */
-      align-items: flex-start; /* Align items to the left */
-      justify-content: flex-start; /* Ensure alignment to the left */
-    }
-
-    .footer-column {
-      min-width: 100px;
-    }
-
-    .footer__bottom-wrapper {
-      flex-wrap: wrap;
-    }
-
-    .footer__left {
-      flex-wrap: wrap;
-    }
-
-    .newsletter-form__field-wrapper {
-      width: 100%; /* Ensure the wrapper is full width */
-    }
-
-    .field__input,
-    .newsletter-form__button {
-      width: 100%; /* Ensure they span the full width on mobile */
-    }
+  .newsletter-form__field-wrapper {
+    width: 100%;
   }
+
+  .field__input,
+  .newsletter-form__button {
+    width: 100%;
+  }
+
+  /* Added CSS to center the newsletter heading and block */
+  .footer-block__heading,
+  .footer-block__newsletter {
+    text-align: center;
+  }
+}
 {%- endstyle -%}
+
 
 {% schema %}
 {
