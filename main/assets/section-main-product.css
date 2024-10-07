@@ -251,7 +251,23 @@ a.product__text {
 }
 
 .product__title > * {
+  font-size: 3.4rem;
   margin: 0;
+}
+
+/* Responsive Logo Adjustments */
+@media screen and (max-width: 768px) {
+  .product__title > * {
+    font-size: 3rem;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product__title > * {
+    font-size: 3rem;
+    margin: 0;
+  }
 }
 
 .product__title > a {
