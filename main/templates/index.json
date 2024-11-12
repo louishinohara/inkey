@@ -1,15 +1,22 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "custom_image_banner_exq48N": {
       "type": "custom-image-banner",
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
-        "image": "shopify:\/\/shop_images\/phone.webp",
+        "image": "shopify://shop_images/phone.webp",
         "image_alt_text": "",
-        "heading": "E-Ink iPhone Case",
-        "description": "Combining our standing phone charger with a clean desktop, you can get all the productivity of a minimal setup – without sacrificing access to your favorite apps.",
+        "heading": "Inkey E-Ink iPhone Case",
+        "description": "Upgrade your iPhone with our E-Ink phone case, featuring an NFC-powered screen on the back that updates your display with a simple tap. Customize your phone with images, schedules, or notes—minimal power, maximum style!",
         "button_text": "Get Yours Now!",
         "button_link": "",
         "image_position": "image-left",
@@ -19,7 +26,7 @@
     "triple_img_banner_DnhCQK": {
       "type": "triple-img-banner",
       "settings": {
-        "section_title": "Quick and Easy",
+        "section_title": "Quick and Easy Set Up",
         "background_color": "#0e0e0e",
         "text_color": "#ffffff",
         "gradient_center_color": "#1a1a1a",
@@ -27,15 +34,15 @@
         "title_font_size": 32,
         "column_title_font_size": 18,
         "body_font_size": 15,
-        "image1": "shopify:\/\/shop_images\/cam.webp",
+        "image1": "shopify://shop_images/cam.webp",
         "image1_alt_text": "",
         "title1": "Go To Our App",
         "description1": "Available In The App Store",
-        "image2": "shopify:\/\/shop_images\/download.webp",
+        "image2": "shopify://shop_images/download.webp",
         "image2_alt_text": "",
         "title2": "Upload Your Image",
         "description2": "You can choose anything that comes to mind!",
-        "image3": "shopify:\/\/shop_images\/watch.webp",
+        "image3": "shopify://shop_images/watch.webp",
         "image3_alt_text": "",
         "title3": "Wait 5 Seconds",
         "description3": "Watch Your Case Transform!"
@@ -44,7 +51,7 @@
     "custom_image_banner_h3DKTV": {
       "type": "custom-image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/headphones.webp",
+        "image": "shopify://shop_images/headphones.webp",
         "image_alt_text": "",
         "heading": "Absolutely Beautiful!",
         "description": "The possibilities are as endless as your imagination!",
@@ -65,7 +72,7 @@
             "heading_size": "h1",
             "subheading": "",
             "button_label": "Shop all",
-            "link": "shopify:\/\/collections\/all",
+            "link": "shopify://collections/all",
             "button_style_secondary": false,
             "box_align": "middle-left",
             "show_text_box": true,
