@@ -74,6 +74,7 @@
               <h3 class="footer-heading">About Us</h3>
               <ul class="footer-link-list">
                 <li><a href="/pages/vision">Our Vision</a></li>
+                <li><a href="/pages/contact">Contact Us</a></li>
               </ul>
             </div>
 
@@ -84,11 +85,11 @@
                 <ul class="footer-link-list">
                   {% assign sorted_policies = shop.policies | sort: 'title' %}
                   {%- for policy in sorted_policies -%}
-                    {%- if policy != blank -%}
+                    {%- if policy.url != "/policies/contact-information" and policy.url != blank -%}
                       <li>
-                        <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+                          <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
                       </li>
-                    {%- endif -%}
+                  {%- endif -%}
                   {%- endfor -%}
                 </ul>
               {%- endif -%}
@@ -99,9 +100,7 @@
               <h3 class="footer-heading">Help Center</h3>
               <ul class="footer-link-list">
                 <li><a href="/pages/faq">FAQ</a></li>
-                <li><a href="/pages/track-your-order">Order Status</a></li>
-                <li><a href="/pages/shipping-policy">Shipping Policy</a></li>
-                <li><a href="/pages/returns">Returns</a></li>
+                <li><a href="/pages/track-your-order">Track Your Order</a></li>
               </ul>
             </div>
           </div>

@@ -1,14 +1,65 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "rich_text_V8xtKM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7jxwyM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Vision",
+            "heading_size": "h1"
+          }
+        },
+        "text_Ce36zp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At our core, we're artists fueled by the passion to express ourselves through technology. Our ever-evolving inspiration keeps us on a journey to adapt, create, and redefine style—empowering you to make your phone an extension of who you are. With us, you have the freedom to share your unique message, whenever and however you want.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7jxwyM",
+        "text_Ce36zp"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
         "padding_top": 36,
-        "padding_bottom": 28
+        "padding_bottom": 4
+      }
+    },
+    "custom_liquid_cgrinN": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 96
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "rich_text_V8xtKM",
+    "custom_liquid_cgrinN"
   ]
 }
