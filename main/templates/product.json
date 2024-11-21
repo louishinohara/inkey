@@ -107,15 +107,15 @@
         "title_font_size": 32,
         "column_title_font_size": 18,
         "body_font_size": 15,
-        "image1": "shopify://shop_images/cam.webp",
+        "image1": "shopify://shop_images/Screenshot_2024-11-18_at_7.50.35_PM-removebg-preview.png",
         "image1_alt_text": "",
         "title1": "Go To Our App",
-        "description1": "Available in the App Store",
-        "image2": "shopify://shop_images/download.webp",
+        "description1": "Available in the App Store. \nDeerPhoneCase",
+        "image2": "shopify://shop_images/4592C02A-5231-4427-8A62-D5E4E66A3ACE.gif",
         "image2_alt_text": "",
         "title2": "Upload Your Image",
         "description2": "You can choose anything that comes to mind!",
-        "image3": "shopify://shop_images/watch.webp",
+        "image3": "shopify://shop_images/IMG_1185.gif",
         "image3_alt_text": "",
         "title3": "Wait 5 Seconds",
         "description3": "Watch your case transform!"
@@ -146,14 +146,14 @@
         "heading_wTQdWc": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Absolutely Beautiful!",
             "heading_size": "h1"
           }
         },
         "text_VjfEq7": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>The possibilities are as endless as your imagination!</p>",
             "text_style": "body"
           }
         }
@@ -163,6 +163,7 @@
         "text_VjfEq7"
       ],
       "settings": {
+        "image": "shopify://shop_images/drop_shipping_2.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",

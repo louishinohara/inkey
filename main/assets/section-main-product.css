@@ -326,8 +326,10 @@ a.product__text {
 .product--no-media .product__tax,
 .product--no-media .product__sku,
 .product--no-media shopify-payment-terms {
-  text-align: center;
+  display: none !important;
 }
+
+.shopify-installments {display: none !important;}
 
 .product--no-media .product__media-wrapper,
 .product--no-media .product__info-wrapper {
